@@ -1,3 +1,5 @@
+// Chat Server
+
 #define WIN32_LEAN_AND_MEAN
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 
@@ -40,7 +42,8 @@ int main()
     //Checking if the Socket was created Successfully or not
     if (LSocket == INVALID_SOCKET)
     {
-        std::cout << "Failed to Create a Scocket, with error: " << WSAGetLastError() << ".\n";
+        std::cout << "Failed to Create a Scocket, with error: "
+        << WSAGetLastError() << ".\n";
         WSACleanup();
         return 1;
     }
@@ -56,7 +59,8 @@ int main()
     //Checking if Binding was Successful or not
     if (result == SOCKET_ERROR)
     {
-        std::cout << "Binding Failed with Error: " << WSAGetLastError() << ".\n";
+        std::cout << "Binding Failed with Error: " << 
+        WSAGetLastError() << ".\n";
         closesocket(LSocket);
         WSACleanup();
         return 1;
@@ -69,7 +73,8 @@ int main()
     result = listen(LSocket, SOMAXCONN);
     if (result == SOCKET_ERROR)
     {
-        std::cout << "Failed to Listen on Socket with Error: " << WSAGetLastError() << ".\n";
+        std::cout << "Failed to Listen on Socket with Error: " <<
+        WSAGetLastError() << ".\n";
         WSACleanup();
         return 1;
     }
@@ -90,7 +95,8 @@ int main()
     char ClientPort[NI_MAXSERV];
     if (ClientSock == INVALID_SOCKET)
     {
-        std::cout << "Accept Failed with error: " << WSAGetLastError() << ".\n";
+        std::cout << "Accept Failed with error: " << 
+        WSAGetLastError() << ".\n";
         closesocket(LSocket);
         WSACleanup();
         return 1;
@@ -131,7 +137,8 @@ int main()
     result = closesocket(LSocket);
     if (result == SOCKET_ERROR)
     {
-        std::cout << "Failed to Close the Socket with Error: " << WSAGetLastError() << ".\n";
+        std::cout << "Failed to Close the Socket with Error: " << 
+        WSAGetLastError() << ".\n";
         WSACleanup();
         return 1;
     }

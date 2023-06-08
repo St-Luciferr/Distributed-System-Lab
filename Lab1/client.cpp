@@ -46,7 +46,8 @@ int main()
     //Checking if Connection is established Successfully or not
     if (result == SOCKET_ERROR)
     {
-        std::cout << "Connecting Failed with Error: " << WSAGetLastError() << ".\n";
+        std::cout << "Connecting Failed with Error: " << 
+        WSAGetLastError() << ".\n";
         closesocket(CSocket);
         WSACleanup();
         return 1;
@@ -90,7 +91,8 @@ int main()
     result = closesocket(CSocket);
     if (result == SOCKET_ERROR)
     {
-        std::cout << "Failed to Close the Socket with Error: " << WSAGetLastError() << ".\n";
+        std::cout << "Failed to Close the Socket with Error: " << 
+        WSAGetLastError() << ".\n";
         WSACleanup();
         return 1;
     }
